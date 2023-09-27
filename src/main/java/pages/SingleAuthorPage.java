@@ -25,7 +25,8 @@ public class SingleAuthorPage extends SeleniumWrappers {
 
         //Thread.sleep(3000);
         //wait.until(ExpectedConditions.textToBePresentInElementLocated(elementPercentage, "text"));
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(elementPercentage));
+        //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(elementPercentage));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.sc_skills_total[style*='overflow:hidden;']")));
 
         List<WebElement> procente = driver.findElements(elementPercentage);
         List<String> procenteLista = new ArrayList<>();
