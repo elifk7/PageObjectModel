@@ -26,6 +26,7 @@ public class MenuPage {
 
 	public By searchIcon = By.cssSelector("button[class*='search_submit']");
 	public By searchInput = By.cssSelector("input[class='search_field']");
+	public By facebookLink = By.xpath("//a[@href='https://www.facebook.com/keytraining.ro']");
 	
 	
 	//metode specifice cu locatori sau elementele de mai sus

@@ -1,46 +1,56 @@
 package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+import pages.ProductPage;
 import utils.BaseTest;
+
+import static org.testng.AssertJUnit.assertTrue;
 
 public class temaCurs24 extends BaseTest {
 
     @Test
+
     public void bookCheck() throws InterruptedException {
+
 
         app.menu.navigateTo(app.menu.shopLink);
 
+
         //JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
         //jsExecutor.executeScript("window.scrollBy(0, 600);");
+
         //Thread.sleep(3000);
 
-        Actions action  = new Actions(driver);
+
+        Actions action = new Actions(driver);
+
 
         WebElement carte = driver.findElement(By.xpath("//h2[@class='woocommerce-loop-product__title']/a[@href='https://keybooks.ro/shop/a-hundred-and-one-receipes/']"));
+
         action.moveToElement(carte);
+
         carte.click();
 
-        //driver.findElement(By.xpath("//h2[@class='woocommerce-loop-product__title']/a[@href='https://keybooks.ro/shop/a-hundred-and-one-receipes/']")).click();
+        ProductPage product = new ProductPage(driver);
 
-        driver.findElement(By.xpath("//a[@href='#' and @class='woocommerce-product-gallery__trigger']"));
+        assertTrue(product.checkElementIsDisplayed(product.gallery));
 
-        driver.findElement(By.xpath("//div[@class='star-rating']"));
+        assertTrue(product.checkElementIsDisplayed(product.rating));
 
-        driver.findElement(By.xpath("//h1[@class='product_title entry-title']"));
+        assertTrue(product.checkElementIsDisplayed(product.title));
 
-        driver.findElement(By.xpath("//p[@class='price']"));
+        assertTrue(product.checkElementIsDisplayed(product.price));
 
-        driver.findElement(By.xpath("//div[@class='quantity']"));
+        assertTrue(product.checkElementIsDisplayed(product.quantity));
 
-        driver.findElement(By.xpath("//div[@class='woocommerce-product-details__short-description']"));
+        assertTrue(product.checkElementIsDisplayed(product.description));
 
-        driver.findElement(By.xpath("//form[@class='cart']/button[contains(@class, 'single_add_to_cart_button button alt')]"));
+        assertTrue(product.checkElementIsDisplayed(product.addToCart));
 
-        driver.findElement(By.xpath("//span[@class='posted_in']"));
-
+        assertTrue(product.checkElementIsDisplayed(product.category));
     }
 }
